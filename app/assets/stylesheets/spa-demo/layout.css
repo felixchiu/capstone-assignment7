@@ -103,6 +103,10 @@ div.areas-pane > ul.tab-label li a {
   line-height: 7px;
   font-size: 0.8em;
 } 
+
+ul.ui_images img {
+  width: 50px;
+}
 /********************************/
 
 [readonly='readonly'] {

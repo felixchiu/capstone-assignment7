@@ -35,6 +35,10 @@
       url: "/foos",
       templateUrl: APP_CONFIG.main_page_html
     })
+    .state("uilayout", {
+      url: "/uilayout",
+      templateUrl: APP_CONFIG.ui_page_html
+    })
     ; 
 
     //$urlRouterProvider.otherwise("/subjects");

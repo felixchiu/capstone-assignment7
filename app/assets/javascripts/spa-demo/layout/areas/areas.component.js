@@ -50,13 +50,18 @@
     vm.areas=[];
     vm.areasLeft = [];
     vm.areasRight = [];
-
+    vm.showThings=showThings;
+    vm.show=true;
     vm.$onInit = function() {
       //console.log("AreasController",$scope);
     }
     return;
     //////////////
+    function showThings(flag){
+      vm.show=flag;
+    }
   }
+
   AreasController.prototype.addArea = function(area) {
     this.areas.push(area);
     if (area.position==="left") {
@@ -84,7 +89,6 @@
     return areasActive;
   }
 
-
   AreaController.$inject = ["$scope"];
   function AreaController($scope) {
     var vm=this;
@@ -102,13 +106,14 @@
       //console.log("isExpanded", vm.position, result);
       return result;
     }
-  }
 
+  }
 
   AreasSideController.$inject = [];
   function AreasSideController() { 
     var vm = this;
     vm.isHidden = isHidden;
+    vm.showThingArea = showThingArea;
 
     vm.$onInit = function() {
       //console.log("AreasSideController", vm);      
@@ -119,6 +124,10 @@
       var result=vm.areas.countActive(position)===0;  
       //console.log("isHidden", position, result);
       return result;
+    }
+
+    function showThingArea(){
+      return vm.areas.show;
     }
   }
 

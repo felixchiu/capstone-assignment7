@@ -3,7 +3,7 @@ json.array!(@thing_images) do |ti|
   json.thing_name ti.thing_name        if ti.respond_to?(:thing_name)
   json.image_caption ti.image_caption  if ti.respond_to?(:image_caption)
   json.image_content_url image_content_url(ti.image_id)    if ti.image_id
-
+  json.thing_description ti.thing_description if ti.respond_to?(:thing_description)
   if ti.respond_to?(:lng) && ti.lng
     json.position do
       json.lng ti.lng

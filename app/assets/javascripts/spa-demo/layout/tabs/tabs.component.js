@@ -35,6 +35,7 @@
     var vm=this;
     vm.tabs=[];
     vm.selectTab = selectTab;
+    vm.refreshTabs = refreshTabs;
 
     vm.$onInit = function() {
       //console.log("TabsController",$scope);
@@ -46,6 +47,10 @@
         tab.selected=false;
       });
       tab.selected=true;
+    }
+
+    function refreshTabs() {
+      vm.tabs = [];
     }
   }
 

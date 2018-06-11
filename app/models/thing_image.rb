@@ -14,7 +14,7 @@ class ThingImage < ActiveRecord::Base
   scope :with_image, ->{ joins("right outer join images on images.id = thing_images.image_id")
                          .select("thing_images.*","images.id as image_id")}
 
-  scope :with_name,    ->{ with_thing.select("things.name as thing_name")}
+  scope :with_name,    ->{ with_thing.select("things.name as thing_name, things.description as thing_description ")}
   scope :with_caption, ->{ with_image.select("images.caption as image_caption")}
   scope :with_position,->{ with_image.select("images.lng, images.lat")}
   scope :within_range, ->(origin, limit=nil, reverse=nil) {
